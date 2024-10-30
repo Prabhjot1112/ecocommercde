@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator - EcoCommerce</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff; /* Light background for contrast */
+        }
+        .hero-banner {
+            background-color: #4caf50; /* Green background for the hero section */
+            color: white;
+            padding: 40px 20px; /* Adjust padding for hero banner */
+        }
+        .bordered-section {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: white; /* White background for the section */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+        .btn-success {
+            background-color: #28a745; /* Button color */
+            border: none; /* Remove border */
+        }
+        .btn-success:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-success text-white d-flex justify-content-between align-items-center p-3">
+        <div class="logo">
+            <h1 class="m-0">EcoCommerce</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="calculator.html">Carbon Footprint</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <section class="text-center mb-5">
+            <h2 class="display-4">Carbon Footprint Calculator</h2>
+            <p class="lead">Calculate your carbon footprint and discover how your lifestyle impacts the environment.</p>
+        </section>
+
+        <div class="bordered-section mb-5">
+            <h3>What is a Carbon Footprint?</h3>
+            <p>Your carbon footprint measures the total amount of greenhouse gases, including carbon dioxide and methane, that are emitted directly or indirectly by your actions. By calculating your carbon footprint, you can better understand how your lifestyle affects climate change and take steps to reduce your impact.</p>
+            <h3>Why Calculate Your Carbon Footprint?</h3>
+            <p>Understanding your carbon footprint helps you identify areas where you can make changes to reduce your environmental impact. It also empowers you to contribute to global efforts in mitigating climate change.</p>
+        </div>
+
+        <form id="carbonFootprintForm" class="bordered-section">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="monthlyUsage">Estimated Monthly Usage (in units):</label>
+                        <input type="number" class="form-control" id="monthlyUsage" placeholder="e.g., 300" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="energyConsumption">Monthly Energy Consumption (in kWh):</label>
+                        <input type="number" class="form-control" id="energyConsumption" placeholder="e.g., 200" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="milesDriven">Miles Driven Per Month:</label>
+                        <input type="number" class="form-control" id="milesDriven" placeholder="e.g., 1500" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wasteGenerated">Waste Generated (in pounds):</label>
+                        <input type="number" class="form-control" id="wasteGenerated" placeholder="e.g., 50" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg">Calculate My Carbon Footprint</button>
+        </form>
+
+        <div id="result" class="mt-4 text-center" style="display: none;">
+            <h3>Your Estimated Carbon Footprint:</h3>
+            <p id="carbonResult"></p>
+        </div>
+    </main>
+
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 EcoCommerce. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('carbonFootprintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const monthlyUsage = parseFloat(document.getElementById('monthlyUsage').value);
+            const energyConsumption = parseFloat(document.getElementById('energyConsumption').value);
+            const milesDriven = parseFloat(document.getElementById('milesDriven').value);
+            const wasteGenerated = parseFloat(document.getElementById('wasteGenerated').value);
+
+            // Simple calculation for carbon footprint (in CO2 equivalent)
+            const footprint = (monthlyUsage * 0.1) + (energyConsumption * 0.5) + (milesDriven * 0.04) + (wasteGenerated * 0.3);
+            
+            // Display result
+            document.getElementById('carbonResult').textContent = `${footprint.toFixed(2)} kg of CO2 per month`;
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

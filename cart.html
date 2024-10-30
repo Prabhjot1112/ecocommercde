@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - EcoCommerce</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-success text-white d-flex justify-content-between align-items-center p-3">
+        <div class="logo">
+            <h1 class="m-0">EcoCommerce</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="calculator.html">Carbon Footprint</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cart.html">Cart</a></li> <!-- Active Cart Link -->
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h2>Your Shopping Cart</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <tr>
+                    <td>Biodegradable Soap</td>
+                    <td>
+                        <input type="number" class="form-control quantity" value="1" min="1" style="width: 75px;">
+                    </td>
+                    <td>$5.00</td>
+                    <td class="total">$5.00</td>
+                    <td><button class="btn btn-danger remove">Remove</button></td>
+                </tr>
+                <tr>
+                    <td>Reusable Water Bottle</td>
+                    <td>
+                        <input type="number" class="form-control quantity" value="1" min="1" style="width: 75px;">
+                    </td>
+                    <td>$12.00</td>
+                    <td class="total">$12.00</td>
+                    <td><button class="btn btn-danger remove">Remove</button></td>
+                </tr>
+                <tr>
+                    <td>Eco-Friendly Tote Bag</td>
+                    <td>
+                        <input type="number" class="form-control quantity" value="1" min="1" style="width: 75px;">
+                    </td>
+                    <td>$15.00</td>
+                    <td class="total">$15.00</td>
+                    <td><button class="btn btn-danger remove">Remove</button></td>
+                </tr>
+                <!-- Add more products as needed -->
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <h4 id="totalPrice">Total: $32.00</h4>
+            <a href="checkout.html" class="btn btn-success btn-lg">Proceed to Checkout</a> <!-- Link to Checkout Page -->
+        </div>
+    </main>
+
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 EcoCommerce. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function updateTotal() {
+                let total = 0;
+                $('#cartItems tr').each(function() {
+                    const quantity = $(this).find('.quantity').val();
+                    const price = parseFloat($(this).find('td:nth-child(3)').text().replace('$', ''));
+                    const itemTotal = quantity * price;
+                    $(this).find('.total').text(`$${itemTotal.toFixed(2)}`);
+                    total += itemTotal;
+                });
+                $('#totalPrice').text(`Total: $${total.toFixed(2)}`);
+            }
+
+            // Update total when quantity changes
+            $('.quantity').on('input', function() {
+                updateTotal();
+            });
+
+            // Remove item from cart
+            $('.remove').on('click', function() {
+                $(this).closest('tr').remove();
+                updateTotal();
+            });
+        });
+    </script>
+</body>
+</html>

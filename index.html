@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EcoCommerce</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-success text-white d-flex justify-content-between align-items-center p-3">
+        <div class="logo">
+            <h1 class="m-0">EcoCommerce</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="calculator.html">Carbon Footprint</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cart.html">Cart</a></li> <!-- Link to Cart Page -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <div class="container text-center">
+            <h2 class="display-4">Shop Eco-Friendly Products</h2>
+            <p class="lead">Explore our range of sustainable and eco-friendly products that help protect our planet.</p>
+            <a href="cart.html" class="btn btn-success btn-lg">Shop Now</a>
+        </div>
+    </section>
+
+    <main class="container my-5 p-5 pb-5">
+        <section class="mb-5">
+            <h3>Product Categories</h3>
+            <!-- Bootstrap Tabs -->
+            <ul class="nav nav-tabs py-3" id="productTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active btn-success" id="biodegradable-tab" data-toggle="tab" href="#biodegradable" role="tab" aria-controls="biodegradable" aria-selected="true">Biodegradable Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-warning" id="reusable-tab" data-toggle="tab" href="#reusable" role="tab" aria-controls="reusable" aria-selected="false">Reusable Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-info" id="bags-tab" data-toggle="tab" href="#bags" role="tab" aria-controls="bags" aria-selected="false">Eco-Friendly Bags</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="productTabsContent">
+                <div class="tab-pane fade show active" id="biodegradable" role="tabpanel" aria-labelledby="biodegradable-tab">
+                    <div class="card-deck mt-3">
+                        <!-- 3 product cards for Biodegradable Products -->
+                        <div class="card">
+                            <img src="image/soap.jpg" class="card-img-top" alt="Biodegradable Soap">
+                            <div class="card-body">
+                                <h5 class="card-title">Biodegradable Soap</h5>
+                                <p class="card-text">$5.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/shampoo.webp" class="card-img-top" alt="Biodegradable Shampoo">
+                            <div class="card-body">
+                                <h5 class="card-title">Biodegradable Shampoo</h5>
+                                <p class="card-text">$7.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="image/spray.webp" class="card-img-top" alt="Biodegradable Cleaning Spray">
+                            <div class="card-body">
+                                <h5 class="card-title">Biodegradable Cleaning Spray</h5>
+                                <p class="card-text">$6.50</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="reusable" role="tabpanel" aria-labelledby="reusable-tab">
+                    <div class="card-deck mt-3">
+                        <!-- 3 product cards for Reusable Products -->
+                        <div class="card">
+                            <img src="https://zenifyearth.com.au/cdn/shop/products/Hero-4x-Black-GreyBox_grande.jpg?v=1610599905" class="card-img-top" alt="Reusable Straw Set">
+                            <div class="card-body">
+                                <h5 class="card-title">Reusable Straw Set</h5>
+                                <p class="card-text">$10.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://oceanbottle.co/cdn/shop/products/OceanBottle_BOB_Front_Sky-Blue_2048px_9594725e-b359-4a20-840e-89728f670fa0.jpg?v=1661510184" class="card-img-top" alt="Reusable Water Bottle">
+                            <div class="card-body">
+                                <h5 class="card-title">Reusable Water Bottle</h5>
+                                <p class="card-text">$12.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://www.greenpac.com.au/cdn/shop/products/EK008_3_l_1200x.jpg?v=1569961263" class="card-img-top" alt="Reusable Coffee Cup">
+                            <div class="card-body">
+                                <h5 class="card-title">Reusable Coffee Cup</h5>
+                                <p class="card-text">$15.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="bags" role="tabpanel" aria-labelledby="bags-tab">
+                    <div class="card-deck mt-3">
+                        <!-- 3 product cards for Eco-Friendly Bags -->
+                        <div class="card">
+                            <img src="https://www.earthfriendlypromos.com.au/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/1/115116-0/115116-30.jpg" class="card-img-top" alt="Eco-Friendly Tote Bag">
+                            <div class="card-body">
+                                <h5 class="card-title">Eco-Friendly Tote Bag</h5>
+                                <p class="card-text">$15.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://i.etsystatic.com/14420727/r/il/32b75c/3441282568/il_570xN.3441282568_5xes.jpg" class="card-img-top" alt="Eco-Friendly Backpack">
+                            <div class="card-body">
+                                <h5 class="card-title">Eco-Friendly Backpack</h5>
+                                <p class="card-text">$25.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://www.alburyenvirobags.com.au/wp-content/uploads/magictoolbox_cache/2deb0600714fef155ed12324a046b1c5/1/1/1181/original/3704928278/JFB001-1.jpg" class="card-img-top" alt="Reusable Grocery Bag">
+                            <div class="card-body">
+                                <h5 class="card-title">Reusable Grocery Bag</h5>
+                                <p class="card-text">$8.00</p>
+                                <a href="cart.html" class="btn btn-success">Add to Cart</a> <!-- Link to Cart Page -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separate Why Choose Us Section -->
+     <!-- Separate Why Choose Us Section -->
+<section class="text-center my-5 ">
+    <h2 class="mb-4 mt-4">Why Choose Us?</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <img src="image/why.webp" alt="Why Choose Us" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <p style="text-align: left;">At EcoCommerce, we are committed to providing the highest quality eco-friendly products. Here are a few reasons why you should choose us:</p>
+            <ul class="list-unstyled text-left">
+                <li class="mb-2">
+                    <strong>Quality Assurance:</strong> Our products are rigorously tested to ensure they meet the highest standards.
+                </li>
+                <br/>
+                <li class="mb-2">
+                    <strong>Sustainable Sourcing:</strong> We source our materials responsibly to minimize environmental impact.
+                </li>
+                <br/>
+                <li class="mb-2">
+                    <strong>Positive Impact:</strong> By choosing our products, you contribute to the movement towards a greener planet.
+                </li>
+                <br/>
+                <li class="mb-2">
+                    <strong>Customer Support:</strong> Our dedicated support team is here to assist you every step of the way.
+                </li>
+                <br/>
+                <li class="mb-2">
+                    <strong>Community Engagement:</strong> We actively participate in environmental initiatives and support local communities.
+                </li>
+            </ul>
+            <a href="products.html" class="btn btn-success btn-lg mt-3">Browse All Products</a>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 EcoCommerce. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - EcoCommerce</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-success text-white d-flex justify-content-between align-items-center p-3">
+        <div class="logo">
+            <h1 class="m-0">EcoCommerce</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="calculator.html">Carbon Footprint</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h2>Checkout</h2>
+        <div id="cartSummary" class="mb-4">
+            <h4>Your Cart Summary</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItemsSummary">
+                    <!-- Cart items will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+            <h4 id="cartTotal">Total: $0.00</h4>
+        </div>
+
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <textarea class="form-control" id="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment Method:</label>
+                <select class="form-control" id="payment" required>
+                    <option value="" disabled selected>Select Payment Method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank_transfer">Bank Transfer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg">Complete Purchase</button>
+        </form>
+    </main>
+
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 EcoCommerce. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Sample cart items for demonstration
+        const cartItems = [
+            { name: "Biodegradable Soap", quantity: 1, price: 5.00 },
+            { name: "Reusable Water Bottle", quantity: 1, price: 12.00 },
+            { name: "Eco-Friendly Tote Bag", quantity: 1, price: 15.00 }
+        ];
+
+        // Function to display cart summary
+        function displayCartSummary() {
+            let cartItemsHTML = '';
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cartItemsHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${itemTotal.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('cartItemsSummary').innerHTML = cartItemsHTML;
+            document.getElementById('cartTotal').innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Event listener for the checkout form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collecting user information
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const payment = document.getElementById('payment').value;
+
+            // Redirecting to purchase confirmation page
+            window.location.href = `purchase.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&address=${encodeURIComponent(address)}&payment=${encodeURIComponent(payment)}`;
+        });
+
+        // Initial call to display cart items
+        displayCartSummary();
+    </script>
+</body>
+</html>

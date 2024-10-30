@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Purchase - EcoCommerce</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-success text-white d-flex justify-content-between align-items-center p-3">
+        <div class="logo">
+            <h1 class="m-0">EcoCommerce</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="calculator.html">Carbon Footprint</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h2>Thank You for Your Purchase!</h2>
+        <p>Your order has been successfully placed.</p>
+        <div id="orderDetails"></div>
+    </main>
+
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 EcoCommerce. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to display order details from URL parameters
+        function displayOrderDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const email = urlParams.get('email');
+            const address = urlParams.get('address');
+            const payment = urlParams.get('payment');
+
+            const orderDetailsHTML = `
+                <h4>Order Summary:</h4>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Shipping Address:</strong> ${address}</p>
+                <p><strong>Payment Method:</strong> ${payment}</p>
+            `;
+
+            document.getElementById('orderDetails').innerHTML = orderDetailsHTML;
+        }
+
+        // Call the function to display order details
+        displayOrderDetails();
+    </script>
+</body>
+</html>

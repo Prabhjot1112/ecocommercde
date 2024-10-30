@@ -1,0 +1,51 @@
+body {
+    background-color: #eaf4ff; /* Light blue background */
+    font-family: 'Poppins', sans-serif; /* Poppins font for the entire page */
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif; /* Ensure headers use Poppins */
+}
+
+.hero-banner {
+    background-color: #4caf50; /* Green background for hero banner */
+    color: white;
+    padding: 80px 20px; /* Adjust padding for hero banner */
+    text-align: center;
+}
+
+.hero-banner h2 {
+    font-size: 3rem; /* Adjust size for hero title */
+}
+
+.hero-banner p {
+    font-size: 1.25rem; /* Adjust size for hero subtitle */
+}
+
+.card {
+    border: none; /* No border on cards */
+    border-radius: 15px; /* Rounded corners for cards */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.btn-success {
+    background-color: #28a745; /* Green button */
+    border: none; /* Remove border */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.btn-info {
+    background-color: #17a2b8; /* Info button color */
+    border: none; /* Remove border */
+}
+
+.btn-info:hover {
+    background-color: #138496; /* Darker blue on hover */
+}
